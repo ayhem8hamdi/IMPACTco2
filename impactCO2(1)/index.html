@@ -8,7 +8,6 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -97,92 +96,139 @@
             <span class="current-page" id="current-page">Usage numérique</span>
         </div>
     </section>
+    <div class="main2-container">
+    <section class="main2">
     <section class="main-section">
         <div class="container">
-            <h1 class="title-yellow">Sensibiliser à l'impact des <span class="title-blue">usages numériquessur le climat </span> </h1>
+            <h1 class="title-yellow"><span id="h">Sensibiliser à l'impact des</span> <span class="title-blue">usages numériquessur le climat </span> </h1>
             <p class="paragraph">Mesurez facilement l'empreinte carbone des mails, <br>du streaming ou de la visioconférence & comparez <br>l'impact de ces usages à celui de la construction de vos appareils.</p>
         </div>
-        <center><div class="comaparateur">
-            <div id="mail">
-                <h3 class="text-primary"><span id="mail_value" class="title-blue"></span> e-mails<span class="title-blue"> envoyés</span></h3>
-                <p class="text">par semaine</p>
-                <input type="range" min="0" max="1000" class="range" id="slider">
-               
-                
-                
-                <br>
-                <select name="mail_periph" class="periph">
-                    <option value="smartphone">smartphone</option>
-                    <option value="tablette">tablette</option>
-                    <option value="pc_fixe">pc_fixe</option>
-                    <option value="pc_portable">pc_portable</option>
-                </select> <br>
-                <select name="piece" class="piece">
-                    <option value="sans">Sans pièce jointe</option>
-                    <option value="1mo">Pièce jointe 1Mo</option>
-                    <option value="5mo">Pièce jointe 5Mo</option>
-                </select>
-                <input type="radio" id="wifi1" name="cnx1" ><label for="wifi1"class="cnx_type">wifi</label> <input type="radio" id="4g1"name="cnx1" ><label for="4g1" class="cnx_type">4G</label>
-            </div>
-            <div id="streaming">
-                <h3 class="text-primary"><span id="stream_value" class="title-blue"></span><span class="title-blue">h de</span> streaming</h3>
-                <p class="text">par semaine</p>
-                <input type="range" min="0" max="24" class="range" id="slider2">
-               
-                
-                
-                <br>
-                <select name="stream_periph" class="periph">
-                    <option value="smartphone">smartphone</option>
-                    <option value="tablette">tablette</option>
-                    <option value="pc_fixe">pc_fixe</option>
-                    <option value="pc_portable">pc_portable</option>
-                    <option value="tv">Tv</option>
-                </select> <br>
-                <select name="stream_def" class="piece">
-                    <option value="base">Basse déf</option>
-                    <option value="haute">Haute Déf</option>
-                    <option value="4k">4K</option>
-                </select>
-                <input type="radio" id="wifi2" name="cnx2" ><label for="wifi2"class="cnx_type">wifi</label> <input type="radio" id="4g2"name="cnx2" ><label for="4g2" class="cnx_type">4G</label>
-            </div>
-            <div id="visio">
-                <h3 class="text-primary"><span id="visio_value" class="title-blue"></span><span class="title-blue">h de</span> visioconférence</h3>
-                <p class="text">par semaine</p>
-                <input type="range" min="0" max="24" class="range" id="slider3">
-                
-                
-                
-                <br>
-                <select name="visio_periph" class="periph">
-                    <option value="smartphone">smartphone</option>
-                    <option value="tablette">tablette</option>
-                    <option value="pc_fixe">pc_fixe</option>
-                    <option value="pc_portable">pc_portable</option>
-                    <option value="tv">Tv</option>
-                </select> <br>
-                <select name="visio_def" class="piece">
-                    <option value="audio">Audio</option>
-                    <option value="base">Basse déf</option>
-                    <option value="haute">Haute Déf</option>
-                </select>
-                <input type="radio" id="wifi3" name="cnx3"><label for="wifi3"class="cnx_type">wifi</label> <input type="radio" id="4g3"name="cnx3" ><label for="4g3" class="cnx_type">4G</label>
-            </div>
-        </div></center>
-        <div id="result">
-            <h4 class="title-yellow"><span class="title-blue">Vos usages émettent <span id="week_res">0-0</span> CO2e </span>par semaine</h4>
+       
+        
+    </section>
+    <br>
+    <br>
+
+      <center><div class="comaparateur">
+        <div id="mail">
+            <h3 class="text-primary"><span id="mail_value" class="title-blue"></span> <span class="id">e-mails</span><span class="title-blue"> envoyés</span></h3>
+            <p class="text">par semaine</p>
+            <input type="range" min="0" max="1000" class="range" id="slider">
+            <script>
+                var slider1=document.getElementById("slider");
+                var value1=document.getElementById("mail_value");
+                value1.innerHTML=slider1.value;
+                slider1.oninput=function(){
+                    value1.innerHTML=this.value;
+                }
+            </script>
+            
+            
+            <br>
+            <select id="smartphone" name="mail_periph" class="periph">
+                <option  value="smartphone">smartphone</option>
+                <option value="tablette">tablette</option>
+                <option value="pc_fixe">pc_fixe</option>
+                <option value="pc_portable">pc_portable</option>
+            </select> <br>
+            <select name="piece" class="piece">
+                <option value="sans">Sans pièce jointe</option>
+                <option value="1mo">Pièce jointe 1Mo</option>
+                <option value="5mo">Pièce jointe 5Mo</option>
+            </select>
+            <div class="radio-container">
+                <label for="wifi1" class="radio-option">
+                  <input type="radio" id="wifi1" name="cnx1">
+                  <span class="option-text">WiFi</span>
+                </label>
+                <label for="4g1" class="radio-option">
+                  <input type="radio" id="4g1" name="cnx1">
+                  <span class="option-text">4G</span>
+                </label>
+              </div>        </div>
+        <div id="streaming">
+            <h3 class="text-primary"><span id="stream_value" class="title-blue"></span><span class="title-blue"> de</span> <span class="id">streaming</span></h3>
+            <p class="text">par semaine</p>
+            <input type="range" min="0" max="100" class="range" id="slider2">
+            <script>
+                var slider2=document.getElementById("slider2");
+                var value2=document.getElementById("stream_value");
+                value2.innerHTML=slider2.value + 'h'; // Adding 'h' after the value
+                slider2.oninput=function(){
+                    value2.innerHTML=this.value + 'h'; // Adding 'h' after the value
+                }
+            </script>
+            
+            
+            <br>
+            <select id="stream" name="stream_periph" class="periph">
+                <option value="smartphone">smartphone</option>
+                <option value="tablette">tablette</option>
+                <option value="pc_fixe">pc_fixe</option>
+                <option value="pc_portable">pc_portable</option>
+                <option value="tv">Tv</option>
+            </select> <br>
+            <select name="stream_def" class="piece">
+                <option value="base">Basse déf</option>
+                <option value="haute">Haute Déf</option>
+                <option value="4k">4K</option>
+            </select>
+            <div class="radio-container">
+                <label for="wifi2" class="radio-option">
+                  <input type="radio" id="wifi2" name="cnx2">
+                  <span class="option-text">WiFi</span>
+                </label>
+                <label for="4g2" class="radio-option">
+                  <input type="radio" id="4g2" name="cnx2">
+                  <span class="option-text">4G</span>
+                </label>
+              </div>        </div>
+        <div id="visio">
+            <h3 class="text-primary"><span id="visio_value" class="title-blue"></span><span class="title-blue"> de</span><span class="id"> visioconférence</span></h3>
+            <p class="text">par semaine</p>
+            <input type="range" min="0" max="100" class="range" id="slider3">
+            <script>
+                var slider3=document.getElementById("slider3");
+                var value3=document.getElementById("visio_value");
+                value3.innerHTML=slider3.value+'h';
+                slider3.oninput=function(){
+                    value3.innerHTML=this.value+'h';
+                }
+            </script>
+            
+            
+            <br>
+            <select id="visio3" name="visio_periph" class="periph">
+                <option value="smartphone">smartphone</option>
+                <option value="tablette">tablette</option>
+                <option value="pc_fixe">pc_fixe</option>
+                <option value="pc_portable">pc_portable</option>
+                <option value="tv">Tv</option>
+            </select> <br>
+            <select name="visio_def" class="piece">
+                <option value="audio">Audio</option>
+                <option value="base">Basse déf</option>
+                <option value="haute">Haute Déf</option>
+            </select>
+            <div class="radio-container">
+                <label for="wifi3" class="radio-option">
+                  <input type="radio" id="wifi3" name="cnx3">
+                  <span class="option-text">WiFi</span>
+                </label>
+                <label for="4g3" class="radio-option">
+                  <input type="radio" id="4g3" name="cnx3">
+                  <span class="option-text">4G</span>
+                </label>
+              </div>
+</div>
+    </div></center>
+    <div id="result">
+            <h4 class="title-yellow"><span class="title-blue">Vos usages émettent <span id="week_res">0</span> Kg CO<sub>2</sub>e </span>par semaine</h4>
             <p class="paragraph">Cette valeur comprend l’utilisation de vos appareils,<br> la transmission de la donnée et la construction et l’usage des data-centers.
                 <br>L’impact de la construction de vos appareils n’est pas incluse mais est abordée plus bas dans la page.</p>
-            <h4 class="title-yellow"><span class="title-blue">Soit <span id="week_res">0-0</span> kg CO2e </span>par an</h4>
+            <h4 class="title-yellow"><span class="title-blue">Soit <span id="week_res">0</span> kg CO<sub>2</sub>e </span>par an</h4>
             <center><p class="title-blue">ce qui représente autant d’émissions que pour fabriquer, consommer ou parcourir :</p></center>
         </div>
-    </section>
-    <div class="tab-container">
-        <button class="tab tab--1"><span>&#128240;</span> Partager</button>
-        <button class="tab tab--2"><span>&#60;&#47;&#62;</span> Intégrer</button>
-        <button class="tab tab--3"><span>&#8681;</span> Télécharger</button>
-        <div class="indicator"></div>
-      </div>
       <div class="containerpo">
         <div class="card">
             <i class="fas fa-car"></i> <!-- Car icon -->
@@ -200,6 +246,102 @@
             <p>repas avec du boeuf</p>
         </div>
     </div>
+    </section>
+    <div class="container4">
+        <h1 class="title4">Détail de mon impact</h1>
+    
+        <div class="impact-section">
+          <p class="impact-description">En général, la majorité de votre empreinte numérique provient de la construction de vos appareils et pas de l'usage de ces derniers.</p>
+    
+          <a href="#" class="see-all-devices-link">Voir tous les appareils   </a><input type="checkbox"
+        ></div>
+    
+        <div class="impact-items">
+          <div class="impact-item">
+            <div class="item-icon">
+                
+              <img src="email.png" alt="Icône email">
+            </div>
+    
+            <div class="item-details">
+              <p class="item-title">1 an d'emails (2600 emails)</p>
+              <div class="al">
+                <progress  id='myProgress'class="co2-bar" value="505" max="1000"></progress> <p class="item-value">0.28 kg CO₂e</p>
+</div>
+            </div>
+          </div>
+          <br>
+    
+          <div class="impact-item">
+            <div class="item-icon">
+              <img src="video-conference.png" alt="Icône visioconférence">
+            </div>
+    
+            <div class="item-details">
+              <p class="item-title">1 an de visioconférence (156 heures)</p>
+              <div class="al">
+                <progress id='myProgress' class="co2-bar" value="2.8" max="100"></progress> <p class="item-value">0.28 kg CO₂e</p>
+</div>
+            </div>
+          </div>
+          <br>
+    
+          <div class="impact-item">
+            <div class="item-icon">
+              <img src="streaming.png" alt="Icône streaming">
+            </div>
+    
+            <div class="item-details">
+              <p class="item-title">1 an de streaming (364 heures)</p>
+              <div class="al" >
+                <progress id='myProgress' class="co2-bar" value="2.8" max="100"></progress> <p class="item-value">0.28 kg CO₂e</p>
+</div>
+            </div>
+          </div>
+          <br>
+    
+          <div class="impact-item">
+            <div class="item-icon">
+              <img src="smartphone.png" alt="Icône smartphone">
+            </div>
+    
+            <div class="item-details">
+              <p class="item-title">Construction d'un smartphone</p>
+              <div class="al" >
+                <progress id='myProgress' class="co2-bar" value="2.8" max="100"></progress> <p class="item-value">0.28 kg CO₂e</p>
+</div>
+            </div>
+          </div>
+          <br>
+    
+          <div class="impact-item">
+            <div class="item-icon">
+              <img src="laptop.png" alt="Icône ordinateur portable">
+            </div>
+    
+            <div class="item-details">
+              <p class="item-title">Construction d'un ordinateur portable</p>
+              <div class="al">
+                <progress id='myProgress' class="co2-bar" value="2.8" max="100"></progress> <p class="item-value">0.28 kg CO₂e</p>
+</div>
+            </div>
+          </div>
+        </div>
+        <script>  const progressBar = document.getElementById('myProgress');
+          const itemValue = document.querySelector('.al .item-value');
+          
+          function updatePosition() {
+            const progressWidth = progressBar.offsetWidth;
+            const excessWidth = Math.max(progressWidth - 10, 0); // Get excess width above 10px
+            itemValue.style.setProperty('--progress-width', `${excessWidth}px`);
+          }
+          
+          updatePosition();
+          progressBar.addEventListener('change', updatePosition);
+          </script>
+      </div>
+    </div>
+
     
 
 
@@ -220,51 +362,51 @@
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <script>
         
-        var slider1=document.getElementById("slider");
-        var slider2=document.getElementById("slider2");
-        var slider3=document.getElementById("slider3");
+      var slider1=document.getElementById("slider");
+      var slider2=document.getElementById("slider2");
+      var slider3=document.getElementById("slider3");
 
 
-        var value1=document.getElementById("mail_value");
-        var value2=document.getElementById("stream_value");
-        var value3=document.getElementById("visio_value");
+      var value1=document.getElementById("mail_value");
+      var value2=document.getElementById("stream_value");
+      var value3=document.getElementById("visio_value");
 
 
-        var entriesToChange = document.querySelectorAll("#week_res");
-        
-        value1.innerHTML=slider1.value;
-        value2.innerHTML=slider2.value;
-        value3.innerHTML=slider3.value;
-        
-        
-        //console.log(value1,value2,value3);
-        var formule1 = 0;
-        var formule2 = 0;
+      var entriesToChange = document.querySelectorAll("#week_res");
+      
+      value1.innerHTML=slider1.value;
+      value2.innerHTML=slider2.value;
+      value3.innerHTML=slider3.value;
+      
+      
+      //console.log(value1,value2,value3);
+      var formule1 = 0;
+      var formule2 = 0;
 
-        slider1.oninput=function(){
-            value1.innerHTML=this.value;
-            formule1 = (+(value1.textContent) / 2) / (+(value2.textContent) + +(value3.textContent));
-            formule2 = (formule1 * 53);
-            entriesToChange[0].textContent = formule1.toFixed(2);
-            entriesToChange[1].textContent = formule2.toFixed(2);
-        }
-        slider2.oninput=function(){
-            value2.innerHTML=this.value;
-            formule1 = (+(value1.textContent) / 2) / (+(value2.textContent) + +(value3.textContent));
-            formule2 = (formule1 * 53);
-            entriesToChange[0].textContent = formule1.toFixed(2);
-            entriesToChange[1].textContent = formule2.toFixed(2);
-        }
-        slider3.oninput=function(){
-            value3.innerHTML=this.value;
-            formule1 = (+(value1.textContent) / 2) / (+(value2.textContent) + +(value3.textContent));
-            formule2 = (formule1 * 53);
-            entriesToChange[0].textContent = formule1.toFixed(2);
-            entriesToChange[1].textContent = formule2.toFixed(2);
-        }
-     
-             
-    </script>
+      slider1.oninput=function(){
+          value1.innerHTML=this.value;
+          formule1 = (+(value1.textContent) / 2) / (+(value2.textContent) + +(value3.textContent));
+          formule2 = (formule1 * 53);
+          entriesToChange[0].textContent = formule1.toFixed(2);
+          entriesToChange[1].textContent = formule2.toFixed(2);
+      }
+      slider2.oninput=function(){
+          value2.innerHTML=this.value;
+          formule1 = (+(value1.textContent) / 2) / (+(value2.textContent) + +(value3.textContent));
+          formule2 = (formule1 * 53);
+          entriesToChange[0].textContent = formule1.toFixed(2);
+          entriesToChange[1].textContent = formule2.toFixed(2);
+      }
+      slider3.oninput=function(){
+          value3.innerHTML=this.value;
+          formule1 = (+(value1.textContent) / 2) / (+(value2.textContent) + +(value3.textContent));
+          formule2 = (formule1 * 53);
+          entriesToChange[0].textContent = formule1.toFixed(2);
+          entriesToChange[1].textContent = formule2.toFixed(2);
+      }
+   
+           
+  </script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
