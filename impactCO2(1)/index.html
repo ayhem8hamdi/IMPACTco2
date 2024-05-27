@@ -116,25 +116,25 @@
                 <option value="pc_fixe">pc_fixe</option>
                 <option value="pc_portable">pc_portable</option>
             </select> <br>
-            <select name="piece" class="piece">
+            <select name="piece" class="piece" id="mail_piece">
                 <option value="sans">Sans pièce jointe</option>
                 <option value="1mo">Pièce jointe 1Mo</option>
                 <option value="5mo">Pièce jointe 5Mo</option>
             </select>
             <div class="radio-container">
                 <label for="wifi1" class="radio-option">
-                  <input type="radio" id="wifi1" name="cnx1">
+                  <input type="radio" id="wifi1" value="wifi" name="cnx1">
                   <span class="option-text">WiFi</span>
                 </label>
                 <label for="4g1" class="radio-option">
-                  <input type="radio" id="4g1" name="cnx1">
+                  <input type="radio" id="4g1" value="4g" name="cnx1">
                   <span class="option-text">4G</span>
                 </label>
               </div>        </div>
         <div id="streaming">
             <h3 class="text-primary"><span id="stream_value" class="title-blue"></span><span class="title-blue"> de</span> <span class="id">streaming</span></h3>
             <p class="text">par semaine</p>
-            <input type="range" min="0" max="100" class="range" id="slider2">
+            <input type="range" min="0" max="100" class="range" id="slider2" >
             <script>
                 var slider2=document.getElementById("slider2");
                 var value2=document.getElementById("stream_value");
@@ -153,18 +153,18 @@
                 <option value="pc_portable">pc_portable</option>
                 <option value="tv">Tv</option>
             </select> <br>
-            <select name="stream_def" class="piece">
-                <option value="base">Basse déf</option>
-                <option value="haute">Haute Déf</option>
+            <select name="stream_def" id="stream_qualité" class="piece">
+                <option value="sd">Basse déf</option>
+                <option value="hd">Haute Déf</option>
                 <option value="4k">4K</option>
             </select>
             <div class="radio-container">
                 <label for="wifi2" class="radio-option">
-                  <input type="radio" id="wifi2" name="cnx2">
+                  <input type="radio" id="wifi2" value="wifi" name="cnx2">
                   <span class="option-text">WiFi</span>
                 </label>
                 <label for="4g2" class="radio-option">
-                  <input type="radio" id="4g2" name="cnx2">
+                  <input type="radio" id="4g2" value="4g" name="cnx2">
                   <span class="option-text">4G</span>
                 </label>
               </div>        </div>
@@ -190,44 +190,47 @@
                 <option value="pc_portable">pc_portable</option>
                 <option value="tv">Tv</option>
             </select> <br>
-            <select name="visio_def" class="piece">
+            <select name="visio_def" Id="visio_qualité" class="piece">
                 <option value="audio">Audio</option>
-                <option value="base">Basse déf</option>
-                <option value="haute">Haute Déf</option>
+                <option value="sd">Basse déf</option>
+                <option value="hd">Haute Déf</option>
             </select>
             <div class="radio-container">
                 <label for="wifi3" class="radio-option">
-                  <input type="radio" id="wifi3" name="cnx3">
+                  <input type="radio" id="wifi3" value="wifi" name="cnx3">
                   <span class="option-text">WiFi</span>
                 </label>
                 <label for="4g3" class="radio-option">
-                  <input type="radio" id="4g3" name="cnx3">
+                  <input type="radio" id="4g3" value="4g" name="cnx3">
                   <span class="option-text">4G</span>
                 </label>
               </div>
+
 </div>
-    </div></center>
+    </div>
+</center>
+
     <div id="result">
             <h4 class="title-yellow"><span class="title-blue">Vos usages émettent <span id="week_res">0</span> Kg CO<sub>2</sub>e </span>par semaine</h4>
             <p class="paragraph">Cette valeur comprend l’utilisation de vos appareils,<br> la transmission de la donnée et la construction et l’usage des data-centers.
                 <br>L’impact de la construction de vos appareils n’est pas incluse mais est abordée plus bas dans la page.</p>
-            <h4 class="title-yellow"><span class="title-blue">Soit <span id="week_res">0</span> kg CO<sub>2</sub>e </span>par an</h4>
+            <h4 class="title-yellow"><span class="title-blue">Soit <span id="week_res2">0</span> kg CO<sub>2</sub>e </span>par an</h4>
             <center><p class="title-blue">ce qui représente autant d’émissions que pour fabriquer, consommer ou parcourir :</p></center>
         </div>
       <div class="containerpo">
-        <div class="card">
+        <div class="card" >
             <i class="fas fa-car"></i>
-            <h2>65.3</h2>
+            <h2 id="voiture">0</h2>
             <p>km en voiture</p>
         </div>
         <div class="card">
             <i class="fas fa-tshirt"></i>
-            <h2>2.21</h2>
+            <h2 id="tshirt">0</h2>
             <p>t-shirts</p>
         </div>
         <div class="card">
             <i class="fas fa-utensils"></i>
-            <h2>1.96</h2>
+            <h2 id="boeuf">0</h2>
             <p>repas avec du boeuf</p>
         </div>
     </div>
@@ -342,189 +345,96 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>   
     <script>
-    var slider1 = document.getElementById("slider");
-    var slider2 = document.getElementById("slider2");
-    var slider3 = document.getElementById("slider3");
-    var deviceType = document.getElementById("mail").querySelector('select[name="mail_periph"]').value;
-    var attachmentSize = document.getElementById("mail").querySelector('select[name="piece"]').value; // Assuming this refers to email attachments
-    var streamDevice = document.getElementById("streaming").querySelector('select[name="stream_periph"]').value;
-    var streamResolution = document.getElementById("streaming").querySelector('select[name="stream_def"]').value;
-    var visioDevice = document.getElementById("visio").querySelector('select[name="visio_periph"]').value;
-    var visioResolution = document.getElementById("visio").querySelector('select[name="visio_def"]').value;
-    function getCarbonFactor1(device, factor) {
-
-  if (device === "smartphone") {
-    if (factor==="sans pièce jointe") { 
-      return 1.5; 
-    } else if (factor==="pièce jointe 1Mo") {
-      return 2.0; 
-    }
-    else{
-        return 4.0;
-    }
-  } else if (device === "tablette") {
-    if (factor==="sans pièce jointe") { 
-      return 2.0; 
-    } else if (factor==="pièce jointe 1Mo") {
-      return 3.0; 
-    }
-    else{
-        return 5.0;
-    } 
-  } else if (device === "pc_fixe") {
-    if (factor==="sans pièce jointe") { 
-      return 4; 
-    } else if (factor==="pièce jointe 1Mo") {
-      return 5; 
-    }
-    else{
-        return 6;
-    } 
-  } else {
-    if (factor==="sans pièce jointe") { 
-      return 1.5; 
-    } else if (factor==="pièce jointe 1Mo") {
-      return 2.0; 
-    }
-    else{
-        return 4.0;
-    }; 
-  }
-}
-function getCarbonFactor2(device, factor) {
-
-if (device === "smartphone") {
-    if (factor==="basse déf") { 
-      return 1.5; 
-    } else if (factor==="Haute Déf") {
-      return 2.0; 
-    }
-    else{
-        return 4.0;
-    }
-  } else if (device === "tablette") {
-    if (factor==="basse déf") { 
-      return 2.0; 
-    } else if (factor==="Haute Déf") {
-      return 3.0; 
-    }
-    else{
-        return 5.0;
-    } 
-  } else if (device === "pc_fixe") {
-    if (factor==="basse déf") { 
-      return 4; 
-    } else if (factor==="Haute Déf") {
-      return 5; 
-    }
-    else{
-        return 6;
-    } 
-  } else if (device=="pc_portable") {
-    if (factor==="basse déf") { 
-      return 1.5; 
-    } else if (factor==="Haute Déf") {
-      return 2.0; 
-    }
-    else {
-        return 4.0;
-    }; 
-  }
-  else{
-    if (factor==="basse déf") { 
-      return 1.5; 
-    } else if (factor==="Haute Déf") {
-      return 2.0; 
-    }
-    else {
-        return 4.0;
-    };
+      function calculateCO2() {
+          // Mail section
+          var mailCount = parseInt(document.getElementById('slider').value);
+          var mailPiece = document.getElementById('mail_piece').value;
+          var mailCnx = document.querySelector('input[name="cnx1"]:checked');
+          mailCnx = mailCnx ? mailCnx.value : 'wifi'; // Default to 'wifi' if not selected
+          var mailPeriph = document.getElementById('smartphone').value;
   
-
-  }
-}
-
-function getCarbonFactor3(device, factor) {
-
-if (device === "smartphone") {
-    if (factor==="basse déf") { 
-      return 1.5; 
-    } else if (factor==="Haute Déf") {
-      return 2.0; 
-    }
-    else{
-        return 4.0;
-    }
-  } else if (device === "tablette") {
-    if (factor==="basse déf") { 
-      return 2.0; 
-    } else if (factor==="Haute Déf") {
-      return 3.0; 
-    }
-    else{
-        return 5.0;
-    } 
-  } else if (device === "pc_fixe") {
-    if (factor==="basse déf") { 
-      return 4; 
-    } else if (factor==="Haute Déf") {
-      return 5; 
-    }
-    else{
-        return 6;
-    } 
-  } else if (device=="pc_portable") {
-    if (factor==="basse déf") { 
-      return 1.5; 
-    } else if (factor==="Haute Déf") {
-      return 2.0; 
-    }
-    else {
-        return 4.0;
-    }; 
-  }
-  else{
-    if (factor==="basse déf") { 
-      return 1.5; 
-    } else if (factor==="Haute Déf") {
-      return 2.0; 
-    }
-    else {
-        return 4.0;
-    }; 
+          var mailCO2Factor = 4;
+          if (mailPiece === '1mo') mailCO2Factor = 10;
+          else if (mailPiece === '5mo') mailCO2Factor = 50;
+          else mailCO2Factor = 5;
   
-
-  }
-}
-  var emailFactor = getCarbonFactor1(deviceType, attachmentSize);
-  var streamFactor = getCarbonFactor2(streamDevice, streamResolution);
-  var visioFactor = getCarbonFactor3(visioDevice, visioResolution);
-
-
-    
-    var value1 = document.getElementById("mail_value");
-    var value2 = document.getElementById("stream_value");
-    var value3 = document.getElementById("visio_value");
-    
-    var entriesToChange = document.querySelectorAll("#week_res");
-    
-    function updateValues() {
-      
-      formule1 =value1*emailFactor+value2*streamFactor+value3*visioFactor; 
-    
-      formule2 = (formule1 * 53); 
-      entriesToChange[0].textContent = formule1.toFixed(2);
-      entriesToChange[1].textContent = formule2.toFixed(2);
-    }
-    
-    updateValues();
-    
-    slider1.addEventListener('input', updateValues);
-    slider2.addEventListener('input', updateValues);
-    slider3.addEventListener('input', updateValues);</script>
-    
+          if (mailCnx === '4g') mailCO2Factor *= 1.5;
+          if (mailPeriph === 'smartphone') mailCO2Factor *= 0.9;
+          else if (mailPeriph === 'tablette') mailCO2Factor *= 1.1;
+          else if (mailPeriph === 'pc_fixe') mailCO2Factor *= 1.3;
+          else if (mailPeriph === 'pc_portable') mailCO2Factor *= 1.2;
+  
+          var mailCO2 = mailCount * mailCO2Factor;
+  
+          // Streaming section
+          var streamCount = parseInt(document.getElementById('slider2').value);
+          var streamQualité = document.getElementById('stream_qualité').value;
+          var streamCnx = document.querySelector('input[name="cnx2"]:checked');
+          streamCnx = streamCnx ? streamCnx.value : 'wifi'; // Default to 'wifi' if not selected
+          var streamPeriph = document.getElementById('stream').value;
+  
+          var streamCO2Factor;
+          if (streamQualité === '4k') streamCO2Factor = 200;
+          else if (streamQualité === 'hd') streamCO2Factor = 175;
+          else streamCO2Factor = 100; // Default or low quality
+  
+          if (streamCnx === '4g') streamCO2Factor *= 1.5;
+          if (streamPeriph === 'smartphone') streamCO2Factor *= 0.9;
+          else if (streamPeriph === 'tablette') streamCO2Factor *= 1.1;
+          else if (streamPeriph === 'pc_fixe') streamCO2Factor *= 1.3;
+          else if (streamPeriph === 'pc_portable') streamCO2Factor *= 1.2;
+          else if (streamPeriph === 'tv') streamCO2Factor *= 1.5;
+  
+          var streamCO2 = streamCount * streamCO2Factor;
+  
+          // Visio section
+          var visioCount = parseInt(document.getElementById('slider3').value);
+          var visioQualité = document.getElementById('visio_qualité').value;
+          var visioCnx = document.querySelector('input[name="cnx3"]:checked');
+          visioCnx = visioCnx ? visioCnx.value : 'wifi'; // Default to 'wifi' if not selected
+          var visioPeriph = document.getElementById('visio3').value;
+  
+          var visioCO2Factor;
+          if (visioQualité === 'audio') visioCO2Factor = 50;
+          else if (visioQualité === 'sd') visioCO2Factor = 100;
+          else visioCO2Factor = 175;
+  
+          if (visioCnx === '4g') visioCO2Factor *= 1.5;
+          if (visioPeriph === 'smartphone') visioCO2Factor *= 0.9;
+          else if (visioPeriph === 'tablette') visioCO2Factor *= 1.1;
+          else if (visioPeriph === 'pc_fixe') visioCO2Factor *= 1.3;
+          else if (visioPeriph === 'pc_portable') visioCO2Factor *= 1.2;
+          else if (visioPeriph === 'tv') visioCO2Factor *= 1.5;
+  
+          var visioCO2 = visioCount * visioCO2Factor;
+  
+          var totalCO2 = mailCO2 + streamCO2 + visioCO2;
+          document.getElementById('week_res').innerHTML = totalCO2.toFixed(2);
+          document.getElementById('week_res2').innerHTML = (totalCO2 * 12).toFixed(2);
+          document.getElementById('voiture').innerHTML = (totalCO2 * 12 / 200).toFixed(2);
+          document.getElementById('tshirt').innerHTML = (totalCO2 * 12 / 100).toFixed(2);
+          document.getElementById('boeuf').innerHTML = (totalCO2 * 12 / 100).toFixed(2);
+      }
+  
+      // Adding event listeners to call calculateCO2 function on change
+      document.getElementById('slider').addEventListener('input', calculateCO2);
+      document.getElementById('mail_piece').addEventListener('change', calculateCO2);
+      document.getElementsByName('cnx1').forEach(radio => radio.addEventListener('change', calculateCO2));
+      document.getElementById('smartphone').addEventListener('change', calculateCO2);
+  
+      document.getElementById('slider2').addEventListener('input', calculateCO2);
+      document.getElementById('stream_qualité').addEventListener('change', calculateCO2);
+      document.getElementsByName('cnx2').forEach(radio => radio.addEventListener('change', calculateCO2));
+      document.getElementById('stream').addEventListener('change', calculateCO2);
+  
+      document.getElementById('slider3').addEventListener('input', calculateCO2);
+      document.getElementById('visio_qualité').addEventListener('change', calculateCO2);
+      document.getElementsByName('cnx3').forEach(radio => radio.addEventListener('change', calculateCO2));
+      document.getElementById('visio3').addEventListener('change', calculateCO2);
+  </script>
+  
 <script>
     window.addEventListener('DOMContentLoaded', (event) => {
         var sliders = document.querySelectorAll('.range');
